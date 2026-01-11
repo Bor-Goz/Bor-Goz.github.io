@@ -57,7 +57,6 @@
       margin-bottom: 30px;
     }
 
-    /* GALLERY */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -90,7 +89,6 @@
       transform: scale(1.05);
     }
 
-    /* VIDEO */
     .video-box {
       max-width: 600px;
       margin: auto;
@@ -124,7 +122,7 @@
 <header>
   <h1>@bor_goz</h1>
   <div class="subtitle">
-    <img src="image/yikanma.png" alt="Logo" loading="lazy">
+    <img src="yikanma.png" alt="Logo" loading="lazy">
     <span>Borgoz sitesi</span>
   </div>
 </header>
@@ -133,16 +131,7 @@
 
   <section>
     <h2>Fotoğraflar</h2>
-
-    <div class="gallery">
-      <div class="photo"><img src="havli.png" loading="lazy"></div>
-      <div class="photo"><img src="hotwheels.png" loading="lazy"></div>
-      <div class="photo"><img src="image.png" loading="lazy"></div>
-      <div class="photo"><img src="klasik.png" loading="lazy"></div>
-      <div class="photo"><img src="yikanma.png" loading="lazy"></div>
-      <div class="photo"><img src="kuala.png" loading="lazy"></div>
-      
-    </div>
+    <div class="gallery"></div>
   </section>
 
   <section>
@@ -162,5 +151,46 @@
 </footer>
 
 <script async src="https://www.instagram.com/embed.js"></script>
+
+<script>
+  // AYNI DİZİNDEKİ FOTOĞRAFLAR
+  const images = [
+    "havli.png",
+    "hotwheels.png",
+    "image.png",
+    "klasik.png",
+    "yikanma.png",
+    "kuala.png",
+    "image0.png",
+    "image1.png",
+    "image2.png", 
+    "image3.png",
+    "image4.png",
+    "image5.png",
+    "image6.png",
+    // yeni foto = buraya ekle
+  ];
+
+  // karıştır
+  images.sort(() => Math.random() - 0.5);
+
+  // 6 tane seç
+  const selected = images.slice(0, 6);
+
+  const gallery = document.querySelector(".gallery");
+
+  selected.forEach(src => {
+    const div = document.createElement("div");
+    div.className = "photo";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+
+    div.appendChild(img);
+    gallery.appendChild(div);
+  });
+</script>
+
 </body>
 </html>
